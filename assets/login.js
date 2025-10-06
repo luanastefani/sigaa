@@ -1,4 +1,4 @@
-// login.js
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
@@ -11,14 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = document.getElementById("email").value.trim();
     const senha = document.getElementById("senha").value.trim();
 
-    // Aqui simulamos um "banco de dados" com alguns logins válidos
     const usuarios = {
       coordenador: { email: "coordenador@faculdade.com", senha: "1234" },
       professor: { email: "professor@faculdade.com", senha: "1234" },
       aluno: { email: "aluno@faculdade.com", senha: "1234" },
     };
 
-    // Verifica qual página de login o usuário está usando
     const paginaAtual = window.location.pathname;
 
     if (paginaAtual.includes("login-coordenador")) {
