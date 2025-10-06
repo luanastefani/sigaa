@@ -1,0 +1,39 @@
+-- database/sigaa.sql
+CREATE DATABASE IF NOT EXISTS sigaa CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE sigaa;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  senha VARCHAR(255) NOT NULL,
+  tipo ENUM('aluno','professor','coordenador') NOT NULL
+);
+
+INSERT INTO usuarios (nome, email, senha, tipo) VALUES
+('Coordenador Exemplo', 'coordenador@example.com', '$2y$10$R1X9sLwExE3Z2G6HLq4boe8qlfUZ1cmxYEB0RB.vcVQ9er3G9KQlm', 'coordenador');
+
+CREATE TABLE IF NOT EXISTS professores (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(150) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  disciplina VARCHAR(150) NOT NULL,
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS turmas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(150) NOT NULL,
+  ano INT NOT NULL,
+  turno VARCHAR(50) NOT NULL,
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS comunicados (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  titulo VARCHAR(255) NOT NULL,
+  mensagem TEXT NOT NULL,
+  criado_por INT NULL,
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (criado_por) REFERENCES usuarios(id) ON DELETE SET NULL
+);

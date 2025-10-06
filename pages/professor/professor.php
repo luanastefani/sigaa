@@ -1,22 +1,16 @@
 <?php
-header('Content-Type: application/json');
 
-// Configurações do banco de dados (ajuste conforme necessário)
-// Descomente e configure quando for integrar com banco de dados
-/*
-$host = 'localhost';
-$dbname = 'escola';
-$username = 'root';
-$password = '';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo json_encode(['success' => false, 'message' => 'Erro de conexão: ' . $e->getMessage()]);
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
     exit;
 }
-*/
+
+// opcional: restringir por tipo
+if ($_SESSION['usuario_tipo'] !== 'professor') {
+    header("Location: login.php");
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tipo = $_POST['tipo'] ?? '';

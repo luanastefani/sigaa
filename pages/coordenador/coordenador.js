@@ -39,4 +39,10 @@ function hideMessage() {
   box.style.display = 'none';
 }
 
+fetch("coordenador_backend.php", {
+  method: "POST",
+  body: formData,
+});
+
+
 document.addEventListener('DOMContentLoaded', () => showSection('professor'));
