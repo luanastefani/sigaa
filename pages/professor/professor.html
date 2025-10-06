@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-professor.css">
+    <title>Painel do Professor</title>
+        <h1>Painel do Professor</h1>
+        
+        <div id="messageBox" class="message"></div>
+        
+        <div class="menu">
+            <button onclick="showSection('atividade')">Cadastrar Atividade</button>
+            <button onclick="showSection('notas')">Cadastrar Notas</button>
+            <button onclick="showSection('frequencia')">Cadastrar Frequência</button>
+        </div>
+
+        <div id="atividade" class="section">
+            <h2>Cadastrar Atividade</h2>
+            <form id="formAtividade" onsubmit="submitForm(event, 'atividade')">
+                <div class="form-group">
+                    <label for="tituloAtividade">Título da Atividade:</label>
+                    <input type="text" id="tituloAtividade" name="titulo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descricaoAtividade">Descrição:</label>
+                    <textarea id="descricaoAtividade" name="descricao" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dataEntrega">Data de Entrega:</label>
+                    <input type="date" id="dataEntrega" name="dataEntrega" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="turmaAtividade">Turma:</label>
+                    <input type="text" id="turmaAtividade" name="turma" placeholder="Ex: 3º Ano A" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">Cadastrar Atividade</button>
+            </form>
+        </div>
+
+        <div id="notas" class="section">
+            <h2>Cadastrar Notas</h2>
+            <form id="formNotas" onsubmit="submitForm(event, 'notas')">
+                <div class="form-group">
+                    <label for="alunoNota">Nome do Aluno:</label>
+                    <input type="text" id="alunoNota" name="aluno" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="disciplinaNota">Disciplina:</label>
+                    <input type="text" id="disciplinaNota" name="disciplina" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nota">Nota:</label>
+                    <input type="number" id="nota" name="nota" min="0" max="10" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bimestre">Bimestre:</label>
+                    <select id="bimestre" name="bimestre" required>
+                        <option value="">Selecione...</option>
+                        <option value="1">1º Bimestre</option>
+                        <option value="2">2º Bimestre</option>
+                        <option value="3">3º Bimestre</option>
+                        <option value="4">4º Bimestre</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">Cadastrar Nota</button>
+            </form>
+        </div>
+
+         Seção: Cadastrar Frequência 
+        <div id="frequencia" class="section">
+            <h2>Cadastrar Frequência</h2>
+            <form id="formFrequencia" onsubmit="submitForm(event, 'frequencia')">
+                <div class="form-group">
+                    <label for="alunoFreq">Nome do Aluno:</label>
+                    <input type="text" id="alunoFreq" name="aluno" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dataAula">Data da Aula:</label>
+                    <input type="date" id="dataAula" name="dataAula" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="">Selecione...</option>
+                        <option value="presente">Presente</option>
+                        <option value="ausente">Ausente</option>
+                        <option value="justificado">Falta Justificada</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="turmaFreq">Turma:</label>
+                    <input type="text" id="turmaFreq" name="turma" placeholder="Ex: 3º Ano A" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">Cadastrar Frequência</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="front.js"></script>
+</body>
+</html>
