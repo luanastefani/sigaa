@@ -1,61 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
+
+
 body {
-    font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(145deg, #0c0c0c, #1a1a1a);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+  color: white;
 }
 
 .titulo-sistema {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #222;
-    text-align: center;
-    margin-top: 50px;
-    letter-spacing: 2px;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
+/* ===== CONTAINER PRINCIPAL ===== */
 .container-perfis {
-    display: grid;
-    grid-template-columns: repeat(2, 250px);
-    grid-gap: 40px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Coordenador centralizado embaixo */
+.container-perfis::after {
+  content: "";
+  grid-column: 1 / span 2;
+}
+
+/* ===== BOTÕES DE PERFIL ===== */
 .perfil {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    padding: 40px 20px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    opacity: 0.9;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 35px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
-.perfil h2 {
-    font-size: 1.4rem;
-    color: #333;
+.perfil3 {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 35px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  grid-column: span 2;
+}
+.perfil3:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .perfil:hover {
-    transform: scale(1.08);
-    opacity: 1;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 600px) {
-    .container-perfis {
-        grid-template-columns: 1fr;
-    }
+  .container-perfis {
+    grid-template-columns: 1fr;
+  }
 }
