@@ -1,5 +1,7 @@
--- database/sigaa.sql
-CREATE DATABASE IF NOT EXISTS sigaa CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS sigaa 
+  CHARACTER SET utf8mb4 
+  COLLATE utf8mb4_unicode_ci;
+
 USE sigaa;
 
 CREATE TABLE IF NOT EXISTS usuarios (
@@ -37,3 +39,4 @@ CREATE TABLE IF NOT EXISTS comunicados (
   criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (criado_por) REFERENCES usuarios(id) ON DELETE SET NULL
 );
+

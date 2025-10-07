@@ -1,8 +1,9 @@
+
 <?php
-$host = 'localhost';
+$host = '127.0.0.1'; // ou 'localhost'
 $dbname = 'sigaa';
-$username = 'root'; // ajuste se necessário
-$password = '';     // ajuste se necessário
+$username = 'root';
+$password = ''; // coloque aqui a senha do seu MySQL, se tiver
 
 try {
     $pdo = new PDO(
@@ -14,3 +15,4 @@ try {
 } catch (PDOException $e) {
     die("Erro ao conectar ao banco: " . $e->getMessage());
 }
+?>
